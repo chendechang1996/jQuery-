@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>页面点击时提示弹出框</title>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.easydrag.handler.beta2.js"></script>
+	<style type="text/css">
+		.login {
+			width: 200px;
+			height: 200px;
+			border: 1px solid #000;
+			display: none;
+		}
+		.login a {
+			float: right;
+			text-decoration: none;
+		}
+		p {
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+
+
+<p class="denglu">登录</p>
+<div class="login">这是一个登录框
+	<a href="#"><span>关闭</span></a>
+</div>
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+	
+	$('.denglu').click(function() {
+		$('.login').show();
+	});
+
+	$('span').click(function() {
+		$('.login').hide();
+	});
+
+	$('.login').easydrag();
+
+/*	在同一个按钮中切换显示隐藏	
+	$('.denglu').click(function() {
+		if($('.login').css('display')=='none') {
+			$('.login').css('display','block');
+		} else {
+			$('.login').css('display','none');
+		}
+		
+	});
+	
+$('.login').easydrag();
+*/
+
+
+
+});
+
+</script>
+	
+</body>
+</html>

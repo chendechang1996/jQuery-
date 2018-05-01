@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>next()用法</title>
+	<style tyle="text/css">
+		
+		
+	</style>
+</head>
+<body>
+
+	<input type="submit" id="one" />
+	<span>这是input下面的一段文本</span>
+	
+
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function() {
+
+	console.log("测试");
+	$("#one").click(function() {
+
+		alert($(this).next("span").html());
+
+	});
+	
+
+});
+
+</script>
+
+
+</body>
+</html>

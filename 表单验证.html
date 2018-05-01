@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单验证</title>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<style type="text/css">
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		body {
+			font-size: 12px;
+			padding: 100px;
+		}
+		.one {
+			margin: 10px 0;
+		}
+		.one label {
+			width: 100px;
+			float: left;
+			text-align: right;
+			height: 20px;
+			line-height: 20px;
+		}
+		.one input {
+			border: 1px solid #ccc;
+			height: 20px;
+		}
+		.two {
+			padding-left: 100px;
+		}
+		.red {
+			color: red;
+		}
+		.a2 {
+			background: #08ED1F;
+			padding: 2px;
+		}
+		.error {
+			background: red;
+		}
+
+
+	</style>
+</head>
+<body>
+
+<form action="" method="post">
+	<div class="one">
+		<label for="username">用户名：</label>
+		<input type="text" id="username" class="a1">
+	</div>
+	<div class="one">
+		<label for="password">密码：</label>
+		<input type="password" id="password" class="a1">
+	</div>
+	<div class="one">
+		<label for="passwords">确认密码：</label>
+		<input type="password" id="passwords" class="a1">
+	</div>
+	<div class="one">
+		<label for="email">邮件：</label>
+		<input type="text" id="email" class="a1">
+	</div>
+	<div class="one">
+		<label for="tel">手机：</label>
+		<input type="text" id="tel" class="a1">
+	</div>
+
+	<div class="two">
+		<!-- <button id="send">提交</button> -->
+		<input type="submit" id="send" value="提交">
+
+		<input type="reset" id="res" value="重置">
+	</div>
+
+
+
+</form>
+
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+
+    	$(".a1").each(function() {
+    		var a = $("<strong class='red'>*<strong>");
+    		$(this).parent().append(a);
+
+    	});
+
+    	$("form :input").blur(function() {
+    		$(this).parent().find(".a2").remove();
+
+    		if ($(this).is("#username")) {
+    			if (this.value=="" || this.value.length<6) {
+	    			var b = $("<span class='a2 error'>用户名不得小于6位</span>");
+	    			$(this).parent().append(b);
+	    		} else {
+	    			var b = $("<span class='a2'>正确</span>");
+	    			$(this).parent().append(b);
+	    		}
+    		}  
+
+    		if ($(this).is("#password")) {
+    			if (this.value=="" || this.value.length<6) {
+	    			var b = $("<span class='a2 error'>密码不得小于6位</span>");
+	    			$(this).parent().append(b);
+	    		} else {
+	    			var b = $("<span class='a2'>正确</span>");
+	    			$(this).parent().append(b);
+	    		}
+    		} 
+
+    		if ($(this).is("#passwords")) {
+    			if (this.value.length<6) {
+	    			var b = $("<span class='a2 error'>确认密码小于6位！</span>");
+	    			$(this).parent().append(b);	
+	    		}else if (this.value=="" || this.value!=$("#password").val()) {
+	    			var b = $("<span class='a2 error'>两次密码不一致！</span>");
+	    			$(this).parent().append(b);
+	    		} else {
+	    			var b = $("<span class='a2'>正确</span>");
+	    			$(this).parent().append(b);
+	    		}
+    		} 
+
+    		if ($(this).is("#email")) {
+    			var isEmail = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/; 
+    			if (this.value=="") {
+	    			var b = $("<span class='a2 error'>邮箱不能为空！</span>");
+	    			$(this).parent().append(b);
+	    		} else if (!(isEmail.test(this.value))) {
+	    			var b = $("<span class='a2 error'>邮箱格式不正确！</span>");
+	    			$(this).parent().append(b);
+	    		} else {
+	    			var b = $("<span class='a2'>正确</span>");
+	    			$(this).parent().append(b);
+	    		}
+    		}
+
+    		if ($(this).is("#tel")) {
+    			if (this.value=="" || isNaN($(this).val()) || this.value.length<11) {
+	    			var b = $("<span class='a2 error'>手机号不能为空，必须是11位数字</span>");
+	    			$(this).parent().append(b);
+	    		} else {
+	    			var b = $("<span class='a2'>正确</span>");
+	    			$(this).parent().append(b);
+	    		}
+    		}      		
+    	});
+
+    	$("#send").click(function() {
+    		$("form :input").trigger("blur");
+    		var error = $(".error").length;
+    		if (error) {
+    			return false;
+    		}
+    		alert("注册成功！");
+    	});
+
+    	$("#res").click(function() {
+    		$(".a2").remove();
+    	});
+
+    });
+       
+</script>
+	
+</body>
+</html>

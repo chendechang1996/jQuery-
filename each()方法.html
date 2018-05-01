@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>each()用法</title>
+	<style tyle="text/css">
+		
+		
+	</style>
+</head>
+<body>
+	<p>循环遍历</p>
+	<ul>
+		<li>a</li>
+		<li>b</li>
+		<li>c</li>
+		<li>d</li>
+		<li>e</li>
+		<li>f</li>
+		<li>g</li>
+	</ul>
+<p class="one"><span>你好</span>，最近过的怎么样？</p>
+
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function() {
+
+	console.log("测试");
+	$("ul li").each(function(i) {
+
+		$(this).html($(this).html()+"-----------"+i);
+
+	});
+
+	$(".one").find("span").css('background','red');
+	
+
+});
+
+</script>
+
+
+</body>
+</html>

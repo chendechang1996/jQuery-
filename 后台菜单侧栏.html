@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>后台菜单侧栏</title>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		body {
+			font-size: 12px;
+			padding: 100px;
+		}
+		.box {
+			width: 500px;
+			border-bottom: 1px solid #ccc;
+		}
+		.box h1 {
+			height: 30px
+			line-height: 30px;
+			padding: 10px;
+			font-size: 12px;
+			border: 1px solid #ccc;
+			border-bottom: none;
+			background: #eee url(next.png) no-repeat  right;
+			cursor: pointer;
+		}
+		.box h1.hover {
+			background-color: #e3e2e2;
+		}
+		.box h1.active {
+			background: #eee url(prev.png) no-repeat  right;
+			background-color: red;
+		}
+		.box p {
+			padding: 10px;
+			border-left: 1px solid #ccc;
+			border-right: 1px solid #ccc;
+		}
+
+	</style>
+</head>
+<body>
+
+<div class="box">
+	<h1>标题一</h1>
+	<p>内容</p>
+	<h1>标题二</h1>
+	<p>内容</p>
+	<h1>标题三</h1>
+	<p>内容</p>
+	<h1>标题四</h1>
+	<p>内容</p>
+	<h1>标题五</h1>
+	<p>内容</p>
+</div>
+	
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+
+	$('.box h1:first').addClass('active');
+	
+	$('.box p:not(:first)').hide();
+
+	$('.box h1').hover(function() {
+		$(this).addClass('hover');
+	},function() {
+		$(this).removeClass('hover');
+	});
+
+	$('.box h1').click(function() {
+		$(this).next('p').slideToggle().siblings('p').slideUp();
+		$(this).toggleClass('active').siblings('h1').removeClass('active');
+	});
+
+
+
+
+});
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

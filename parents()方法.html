@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>parents()用法</title>
+	<style tyle="text/css">
+		.one {
+			background: red;
+		}
+		
+	</style>
+</head>
+<body>
+
+	<p>PHP语言的优势！</p>
+	<p>睡着移动互联网的兴起，互联网行业正向更加智能的Web3.0时代迈进，中国互联网行业进入了PHP语言已经为大部分企业广泛应用和重视<a href="#">PHP语言</a>是个大IT公司首选的互联网语言。</p>
+
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function() {
+
+	console.log("测试");
+
+	$("a").hover(function() {
+
+		// $("a").parents("p").css('background','red');
+		$(this).parents("p").addClass("one");
+
+	},function() {
+
+		// $("a").parents("p").css('background','none')
+		$(this).parents("p").removeClass("one");
+
+	});
+
+});
+
+</script>
+
+
+</body>
+</html>

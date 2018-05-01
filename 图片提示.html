@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片提示效果</title>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		a {
+			text-decoration: none;
+			color: #000;
+		}
+		.div {
+			background: #ccc;
+			position: absolute;
+			padding: 15px;
+			border: 1px solid #000;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+
+<a href="2.gif" class="box" title="图片提示效果"><img src="1.gif" alt=""></a>
+	
+
+<script type="text/javascript">
+
+	$(document).ready(function() {
+
+		var x = 10;
+		var y = 10;
+
+		$('.box').mouseover(function(e) {
+
+			this.Mytitle = this.title;
+			this.title = "";
+
+			var imgTitle;
+
+			if (this.Mytitle) {
+				imgTitle = "<br />"+this.Mytitle;
+			} else {
+				imgTitle = "";
+			}
+
+
+			
+
+			var oDiv = "<div class='div'><img src='"+this.href+"' alt='这是一张大图' />"+imgTitle+"</div>";		
+
+			$('body').append(oDiv);
+
+			$('.div')
+				.css({//一定要加绝对定位
+					"left":(e.pageX+x)+"px",
+					"top":(e.pageY+y)+"px"
+				}).show('fast');//快速显示
+
+
+		}).mouseout(function() {
+
+			this.title = this.Mytitle;
+
+			$('.div').remove();
+
+		}).mousemove(function(e) {
+			$('.div')
+				.css({//一定要加绝对定位
+					"left":(e.pageX+x)+"px",
+					"top":(e.pageY+y)+"px"
+				});
+		});
+
+	});
+
+
+
+
+</script>
+
+</body>
+</html>

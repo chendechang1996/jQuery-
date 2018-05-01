@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>多选表格点击变色</title>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<style type="text/css">
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		body {
+			font-size: 12px ;
+			padding: 100px;
+		}
+		table {
+			border-collapse: collapse;
+		}
+		th {
+			border-bottom: 1px solid #000;
+			padding: 10px 20px;
+		}
+		td {
+			padding: 10px 20px;
+		}
+		tr {
+			cursor: pointer;
+		}
+		.odd {
+			background: #eee;
+		}
+		.even {
+			background: #ccc;
+		}
+		.selected {
+			background: #a07;
+		}
+	</style>
+</head>
+<body>
+	<!-- 表格 Start-->
+	<table>
+		<thead>
+			<tr>
+				<th></th>
+				<th>周表</th>
+				<th>时间</th>
+				<th>地点</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>
+					<input type="checkbox" name="radioa" value="" />
+				</td>
+				<td>星期一</td>
+				<td>2017</td>
+				<td>海南</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="checkbox" name="radioa" value="" />
+				</td>
+				<td>星期二</td>
+				<td>2017</td>
+				<td>海南</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="checkbox" name="radioa" value="" checked="checked" /><!-- checked="checked"默认选中 -->
+				</td>
+				<td>星期三</td>
+				<td>2017</td>
+				<td>海南</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="checkbox" name="radioa" value="" />
+				</td>
+				<td>星期四</td>
+				<td>2017</td>
+				<td>海南</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="checkbox" name="radioa" value="" />
+				</td>
+				<td>星期五</td>
+				<td>2017</td>
+				<td>海南</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="checkbox" name="radioa" value="" />
+				</td>
+				<td>星期六</td>
+				<td>2017</td>
+				<td>海南</td>
+			</tr>
+		</tbody>
+	</table>
+	<!-- 表格 End-->
+
+
+<script type="text/javascript">
+
+	$(document).ready(function() {
+
+		//在<tbody>里找到<tr>里的奇数行添加一个类名
+		$("tbody>tr:odd").addClass("odd");
+
+		$("tbody>tr:even").addClass("even");
+
+		$("tr:contains('星期三')").addClass("selected");
+		//等同于上一句
+		//$("table :checkbox:checked").parents("tr").addClass("selected");
+
+		$("tbody>tr").click(function() {
+
+			//如果在tr里面有这个类，就删除这个类，取消选中
+			if ($(this).hasClass("selected")) {
+
+				$(this).removeClass("selected")
+				.find(":checkbox").attr("checked",false);
+
+			} else {
+
+				$(this).addClass("selected")
+				.find(":checkbox").attr("checked",true);
+
+			}	
+		});
+	});
+
+
+
+</script>
+	
+</body>
+</html>

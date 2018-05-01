@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表格展开伸缩</title>
+	<style tyle="text/css">
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		body {
+			font-size: 12px;
+			padding: 100px;
+		}
+		table {
+			border-collapse: collapse;
+		}
+		th {
+			border-bottom: 1px solid #000;
+			padding: 5px 15px;
+		}
+		td {
+			padding: 5px 15px;
+		}
+		.hdw {
+			background: #eee;
+		}
+		.selected {
+			background: #ccc;
+		}
+	</style>
+</head>
+<body>
+
+	<table>
+		<thead>
+			<th>姓名</th>
+			<th>年龄</th>
+			<th>电话</th>
+		</thead>
+		<tbody>
+			<tr class="hdw" id="row_1"><td colspan="3">第一组</td></tr>
+			<tr class="child_row_1">
+				<td>周一</td>
+				<td>20</td>
+				<td>18389885762</td>
+			</tr>
+			<tr class="child_row_1">
+				<td>周二</td>
+				<td>20</td>
+				<td>18389885762</td>
+			</tr>
+			<tr class="hdw" id="row_2"><td colspan="3">第二组</td></tr>
+			<tr class="child_row_2">
+				<td>周三</td>
+				<td>20</td>
+				<td>18389885762</td>
+			</tr>
+			<tr class="child_row_2">
+				<td>周四</td>
+				<td>20</td>
+				<td>18389885762</td>
+			</tr>
+			<tr class="hdw" id="row_3"><td colspan="3">第三组</td></tr>
+			<tr class="child_row_3">
+				<td>周五</td>
+				<td>20</td>
+				<td>18389885762</td>
+			</tr>
+			<tr class="child_row_3">
+				<td>周六</td>
+				<td>20</td>
+				<td>18389885762</td>
+			</tr>
+		</tbody>
+	</table>
+	
+
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function() {
+
+	
+	$(".hdw").click(function() {
+
+		console.log("调试");
+		$(this).toggleClass("selected")
+				.siblings('.child_'+this.id).toggle();
+
+	}).click();//默认状态为收缩
+
+});
+
+</script>
+
+
+</body>
+</html>

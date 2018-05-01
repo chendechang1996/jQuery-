@@ -1,0 +1,98 @@
+@charset "utf-8";
+
+* {
+	padding: 0;
+	margin: 0;
+}
+body {
+	font-size: 12px;
+	font-family: "宋体";
+}
+ul {
+	list-style-type: none;
+}
+a {
+	color: red;
+	text-decoration: none;
+}
+a:hover {
+	color: #000;
+	text-decoration: underline;
+}
+img {
+	border: none;
+}
+h1 {
+	font-size: 12px;
+}
+.a1 {
+	width: 595px;
+	margin: 100px 100px;
+}
+.a2 {
+	height: 35px;
+	background: #eee;
+}
+.a2 h1 {
+	height: 35px;
+	line-height: 35px;
+	padding-left: 10px;
+	float: left;
+}
+.a2 em {
+	float: right;
+	margin: 10px 12px 0 0;
+}
+.a3 {
+	float: left;
+	margin: 14px 0 0 10px;
+}
+.a3 span {
+	width: 7px;
+	height: 7px;
+	float: left;
+	background: #fff;
+	margin-right: 10px;
+	cursor: pointer;
+}
+.a3 span.one {
+	background: red;
+}
+.a4 {
+	float: left;
+	margin: 7px 0 0 10px;
+}
+.a4 span {
+	float: left;
+	width: 20px;
+	height: 20px;
+	text-indent: -9999px;
+	cursor: pointer;
+}
+.a4 span.prev {
+	background: url(prev.png) no-repeat;	
+}
+.a4 span.next {
+	background: url(next.png) no-repeat;
+}
+.a5 {
+	width: 860px;
+	height: 180px;
+	overflow: hidden;
+	position: relative;
+	border: 1px solid #000;
+}
+.a5 ul li {
+	float: left;
+	margin: 10px 2px 0;
+	padding: 8px;
+}
+.a6 {
+	width: 5000px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+
+

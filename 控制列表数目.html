@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>控制列表数目</title>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		body {
+			font: 12px '宋体';
+		}
+		ul {
+			list-style-type: none;
+		}
+		a {
+			text-decoration: none;
+			color: #666;
+			outline: none;/*轮廓线（虚线）*/
+		}
+		a:hover {
+			text-decoration: underline;
+			color: red;
+		}
+		.content {
+			width: 600px;
+			margin: 40px auto;
+			border: 1px solid #ccc;
+			text-align: center;
+		}
+		.container {
+			border: 5px solid #eee;
+			padding: 10px;
+		}
+		.content ul {
+			padding-left: 20px;
+		}
+		.content ul li {
+			float: left;
+			width: 170px;
+			line-height: 20px;
+			margin-right: 10px;
+		}
+		.boxmore {
+			clear: both;
+		}
+		.boxmore a {
+			display: block;
+			width: 120px;
+			line-height: 24px;
+			border: 1px solid #aaa;
+			margin: 0 auto;
+			background-color: #ccc;
+		}
+		.boxmore a span {
+			padding-right: 15px;
+			background: url(next.png) no-repeat right;
+			background-size: 10px;
+		}
+		.onebox a {
+			color: red;
+			font-weight: bold;
+		}
+
+
+	</style>
+</head>
+<body>
+
+<div class="content">
+	<div class="container">
+		<ul>
+			<li><a href="#">网页基础教程</a><span>(30440)</span></li>
+			<li><a href="#">php基础教程</a><span>(30440)</span></li>
+			<li><a href="#">网页基础教程</a><span>(30440)</span></li>
+			<li><a href="#">网页基础教程</a><span>(30440)</span></li>
+			<li><a href="#">网页基础教程</a><span>(30440)</span></li>
+			<li><a href="#">ps基础教程</a><span>(30440)</span></li>
+			<li><a href="#">网页基础教程</a><span>(30440)</span></li>
+			<li><a href="#">网页基础教程</a><span>(30440)</span></li>
+			<li><a href="#">java基础教程</a><span>(30440)</span></li>
+			<li><a href="#">网页基础教程</a><span>(30440)</span></li>
+			<li><a href="#">网页基础教程</a><span>(30440)</span></li>
+			<li><a href="#">网页基础教程</a><span>(30440)</span></li>
+			<li><a href="#">ajax基础教程</a><span>(30440)</span></li>
+			<li><a href="#">其他教程</a><span>(30440)</span></li>
+		</ul>
+
+		<div class="boxmore"><a href="#"><span>显示全部资源</span></a></div>
+	</div>
+</div>
+
+<script type="text/javascript">
+
+	$(document).ready(function() {
+
+		var content = $('.content ul li:gt(5):not(:last)');
+		content.hide();
+
+		$('.boxmore a').click(function() {
+			if (content.is(':visible')) {//如果content是可以看见的那么把不包含前六项隐藏
+				content.hide();
+				$('.boxmore a span').css('background','url(next.png) no-repeat right').css('backgroundSize','10px')
+					.text('显示全部资源');
+				$('ul li').removeClass('onebox');
+			} else {
+				content.show();
+				$('.boxmore a span').css('background','url(prev.png) no-repeat right 0').css('backgroundSize','10px')
+					.text('精简资源');
+
+				//筛选文字高亮显示
+				$('ul li').filter(":contains('php基础教程'),:contains('ps基础教程'),:contains('java基础教程'),:contains('ajax基础教程')").addClass('onebox');
+			};
+				
+			return false;
+
+		});
+
+
+	});
+
+
+</script>
+	
+</body>
+</html>
